@@ -46,8 +46,39 @@ movieDetails() // calling the function movie details
 //    JavaScript to remove the placeholder element before populating the list. You
 //    will need to make a GET request to the following endpoint to retrieve the
 //    film data:
+  // making a get request for all the movies
+  function listMovies(){
+    fetch("http://localhost:3000/films")
+    .then(resp => resp.json())
+    .then(data=>{
+        // iterating over each movie to get the details
+        data.forEach(movies=> {
+            fetchMovies(movies)
+        });
+      
+        console.log(data)
+   
+    })
+function fetchMovies(movies){
+    let ticketsAvailable= parseInt(`${movies.capacity}`) -parseInt(`${movies.tickets_sold}`)
+    const listContainer =document.getElementById("films")
+   const listItems = document.createElement("li")
+   listItems.innerHTML=`
+       <h3>${movies.title}</h3>
+        <img src="${movies.poster}"/>
+        <p>SHOWTIME:${movies.showtime}</p>
+        <p>RUNTIME:${movies.runtime}</p>
+        <p>CAPACITY:${movies.capacity}</p>
+        <p>NUMBER OF TICKETS SOLD:${movies.tickets_sold}</p>
+        <p>NUMBER OF AVAILABLE TICKETS:${ticketsAvailable}</p>
+        <p>DESCRIPTION:${movies.description}</p>
+   `
+   listContainer.appendChild(listItems)
+}
 
 
+  }
+listMovies()
 
 
 
