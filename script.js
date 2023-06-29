@@ -61,7 +61,7 @@ movieDetails() // calling the function movie details
     })
 function fetchMovies(movies){
     let ticketsAvailable= parseInt(`${movies.capacity}`) -parseInt(`${movies.tickets_sold}`)
-    const listContainer =document.getElementById("films")
+    const listContainer =document.querySelector("#films")
    const listItems = document.createElement("li")
    listItems.innerHTML=`
        <h3>${movies.title}</h3>
