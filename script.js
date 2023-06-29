@@ -20,6 +20,7 @@ function movieDetails(){
     function renderMovie(movie){
         const main = document.getElementById("movie-details")
         const details= document.createElement("div")
+        let availableTickets= parseInt(`${movie.capacity}`) -parseInt(`${movie.tickets_sold}`)
         details.innerHTML=
         `
         <h3>${movie.title}</h3>
@@ -28,6 +29,7 @@ function movieDetails(){
         <p>RUNTIME:${movie.runtime}</p>
         <p>CAPACITY:${movie.capacity}</p>
         <p>NUMBER OF TICKETS SOLD:${movie.tickets_sold}</p>
+        <p>NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
         <p>DESCRIPTION:${movie.description}</p>
         `
         main.appendChild(details)
