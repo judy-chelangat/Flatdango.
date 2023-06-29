@@ -1,0 +1,27 @@
+ /* Body styles */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+ /* CSS styles for movie details
+ #movie-details {
+    float: right;
+    width: 50%;
+}
+
+/* CSS styles for movie list */
+/* #films {
+    float: left;
+    width: 50%;
+}
+#films ul {
+    padding: 0;
+    list-style: none;
+} */ 
+
+#main-content{
+    display: flex;
+    justify-self: center;
+}
