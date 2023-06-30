@@ -63,6 +63,7 @@ function fetchMovies(movies){
     let ticketsAvailable= parseInt(`${movies.capacity}`) -parseInt(`${movies.tickets_sold}`)
     const listContainer =document.querySelector("#films")
    const listItems = document.createElement("li")
+   listItems.className="film-items"
    listItems.innerHTML=`
        <h3>${movies.title}</h3>
         <img src="${movies.poster}"/>
