@@ -73,7 +73,7 @@ function fetchMovies(movies){
         <p>CAPACITY:${movies.capacity}</p>
         <p>NUMBER OF TICKETS SOLD:${movies.tickets_sold}</p>
         <p>NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
-        <button> Buy Ticket</button>
+        <button id="ticketButton"> Buy Ticket</button>
         <p>DESCRIPTION:${movies.description}</p>
    `
    listContainer.appendChild(listItems)
@@ -87,7 +87,9 @@ listMovies() //calling the listmovies function
 //    be able to buy a ticket if the showing is sold out (if there are 0 tickets
 //    available). **No persistence is needed for this feature**.
 
-//implement a button for Buying a ticket
+//implement a button for Buying a ticket and adding an event listener
+const buttons= document.getElementById("ticketButton")
+buttons.addEventListener("click",buyTicket)
 function buyTicket(){ // function for decrementing number of tickets when a user buys a ticket
     availableTickets-=1
 }
