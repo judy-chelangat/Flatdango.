@@ -30,6 +30,7 @@ function movieDetails(){
         <p>CAPACITY:${movie.capacity}</p>
         <p>NUMBER OF TICKETS SOLD:${movie.tickets_sold}</p>
         <p>NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
+        <button> Buy Ticket</button>
         <p>DESCRIPTION:${movie.description}</p>
         `
         main.appendChild(details)
@@ -72,6 +73,7 @@ function fetchMovies(movies){
         <p>CAPACITY:${movies.capacity}</p>
         <p>NUMBER OF TICKETS SOLD:${movies.tickets_sold}</p>
         <p>NUMBER OF AVAILABLE TICKETS:${ticketsAvailable}</p>
+        <button> Buy Ticket</button>
         <p>DESCRIPTION:${movies.description}</p>
    `
    listContainer.appendChild(listItems)
@@ -85,6 +87,7 @@ listMovies() //calling the listmovies function
 //    be able to buy a ticket if the showing is sold out (if there are 0 tickets
 //    available). **No persistence is needed for this feature**.
 
+//implement a button for Buying a ticket
 
 }
 
