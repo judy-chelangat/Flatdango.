@@ -79,8 +79,11 @@ function fetchMovies(movies){
 
 
   }
-listMovies()
-
+listMovies() //calling the listmovies function
+//step 3:Buy a ticket for a movie. After clicking the "Buy Ticket" button, I should
+//    see the number of available tickets decreasing on the frontend. I should not
+//    be able to buy a ticket if the showing is sold out (if there are 0 tickets
+//    available). **No persistence is needed for this feature**.
 
 
 }
