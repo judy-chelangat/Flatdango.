@@ -25,7 +25,8 @@ img {
     font-size: 18px;
     margin-top: 0;
 }
-.film-items{
+/* styling the film items container */
+.film-items {
     list-style: none;
     width: 50%;
     border: 2px solid #200505;
@@ -34,6 +35,17 @@ img {
     padding: 20px;
     
 }
+
 .description{
     width: 100%;
+ }
+ /* movie-details container */
+ #movie-details{
+    width: 50%;
+    border: 2px solid #200505;
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 20px;
+    height: 40%;
+    margin-right: 10%;
  }
