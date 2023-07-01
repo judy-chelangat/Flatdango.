@@ -30,7 +30,7 @@ function movieDetails(){
         <p>CAPACITY:${movie.capacity}</p>
         <p>NUMBER OF TICKETS SOLD:${movie.tickets_sold}</p>
         <p>NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
-        <button> Buy Ticket</button>
+        <button class="btn btn-dark"> Buy Ticket</button>
         <p>DESCRIPTION:${movie.description}</p>
         `
         main.appendChild(details)
@@ -66,15 +66,16 @@ function fetchMovies(movies){
    const listItems = document.createElement("li")
    listItems.className="film-items"
    listItems.innerHTML=`
-       <h3>${movies.title}</h3>
+       <h2>${movies.title}</h2>
         <img src="${movies.poster}"/>
-        <p>SHOWTIME:${movies.showtime}</p>
-        <p>RUNTIME:${movies.runtime}</p>
-        <p>CAPACITY:${movies.capacity}</p>
-        <p>NUMBER OF TICKETS SOLD:${movies.tickets_sold}</p>
-        <p id="tickets">NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
-        <button class="ticketButton"> Buy Ticket</button>
-        <p>DESCRIPTION:${movies.description}</p>
+        <p class="description">DESCRIPTION:${movies.description}</p>
+        <p>SHOWTIME: ${movies.showtime}</p>
+        <p>RUNTIME: ${movies.runtime}</p>
+        <p>CAPACITY: ${movies.capacity}</p>
+        <p>NUMBER OF TICKETS SOLD: ${movies.tickets_sold}</p>
+        <p id="tickets">NUMBER OF AVAILABLE TICKETS: ${availableTickets}</p>
+        <button class="ticketButton btn btn-dark"> Buy Ticket</button>
+      
    `
    listContainer.appendChild(listItems)
 }
