@@ -7,32 +7,33 @@
     color: #fff;
    
 }
- /* CSS styles for movie details
- #movie-details {
-    float: right;
-    width: 50%;
+h1{
+    text-align: center;
+    margin-top: 20px;    
 }
-
-/* CSS styles for movie list */
-/* #films {
-    float: left;
-    width: 50%;
-}
-#films ul {
-    padding: 0;
-    list-style: none;
-} */ 
-
 #main-content{
     display: flex;
     justify-self: center;
 }
 img {
-    max-width: 60%;
-    /* height: auto; */
+    width: 250px;
+    height: auto; 
     margin-bottom: 10px;
 }
+
 #films h3 {
     font-size: 18px;
     margin-top: 0;
 }
+.film-items{
+    list-style: none;
+    width: 50%;
+    border: 2px solid #200505;
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 20px;
+    
+}
+.description{
+    width: 100%;
+ }
