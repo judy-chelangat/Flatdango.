@@ -25,13 +25,14 @@ function movieDetails(){
         `
         <h3>${movie.title}</h3>
         <img src="${movie.poster}"/>
+        <p class ="description" >DESCRIPTION:${movie.description}</p>
         <p>SHOWTIME:${movie.showtime}</p>
         <p>RUNTIME:${movie.runtime}</p>
         <p>CAPACITY:${movie.capacity}</p>
         <p>NUMBER OF TICKETS SOLD:${movie.tickets_sold}</p>
         <p>NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
         <button class="btn btn-dark"> Buy Ticket</button>
-        <p>DESCRIPTION:${movie.description}</p>
+     
         `
         main.appendChild(details)
     }
