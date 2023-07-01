@@ -7,7 +7,7 @@
 
 const initialize= ()=>{ // function to hold the entire code 
 // fetch the movie details from the local server
-
+let availableTickets; // Declare availableTickets in the outer scope
 function movieDetails(){
     fetch("http://localhost:3000/films/1")
     .then(resp => resp.json())
@@ -19,7 +19,7 @@ function movieDetails(){
     function renderMovie(movie){
         const main = document.getElementById("movie-details")
         const details= document.createElement("div")
-        availableTickets= parseInt(`${movie.capacity}`) -parseInt(`${movie.tickets_sold}`) //global scope
+        availableTickets= parseInt(`${movie.capacity}`) -parseInt(`${movie.tickets_sold}`) 
         //dom manipulation to show the movie details when the page loads
         details.innerHTML=
         `
@@ -72,8 +72,8 @@ function fetchMovies(movies){
         <p>RUNTIME:${movies.runtime}</p>
         <p>CAPACITY:${movies.capacity}</p>
         <p>NUMBER OF TICKETS SOLD:${movies.tickets_sold}</p>
-        <p>NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
-        <button id="ticketButton"> Buy Ticket</button>
+        <p id="tickets">NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
+        <button class="ticketButton"> Buy Ticket</button>
         <p>DESCRIPTION:${movies.description}</p>
    `
    listContainer.appendChild(listItems)
@@ -85,15 +85,18 @@ listMovies() //calling the listmovies function
 //STEP 3:Buy a ticket for a movie. After clicking the "Buy Ticket" button, I should
 //    see the number of available tickets decreasing on the frontend. I should not
 //    be able to buy a ticket if the showing is sold out (if there are 0 tickets
-//    available). **No persistence is needed for this feature**.
+//    available). **No persistence is ne  eded for this feature**.
 
 //implement a button for Buying a ticket and adding an event listener
-const buttons= document.getElementById("ticketButton")
-buttons.addEventListener("click",buyTicket)
+const buyTicketbuttons= document.querySelectorAll(".ticketButton")
+buyTicketbuttons.forEach(button =>{
+    button.addEventListener("click",buyTicket) // loop to get each button
+})
 function buyTicket(){ // function for decrementing number of tickets when a user buys a ticket
-    availableTickets-=1
+   let leftTickets= availableTickets-=1
+   let remainder = document.getElementById("tickets")
+   remainder=leftTickets
 }
-
 }
 
 
