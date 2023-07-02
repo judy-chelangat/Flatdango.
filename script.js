@@ -30,11 +30,14 @@ function movieDetails(){
         <p>RUNTIME:${movie.runtime}</p>
         <p>CAPACITY:${movie.capacity}</p>
         <p>NUMBER OF TICKETS SOLD:${movie.tickets_sold}</p>
-        <p id="availableTickets-${movie.id}">NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
-        <button class="btn btn-dark"> Buy Ticket</button>
+        <p id="availableTickets ${movie.id}">NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
+        <button class="ticketButton btn btn-dark"> Buy Ticket</button>
      
         `
         main.appendChild(details)
+        //implement a button for Buying a ticket and adding an event listener
+   const buyTicketButton = details.querySelector(".ticketButton");
+   buyTicketButton.addEventListener("click", buyTicket);
     }
 
 }
@@ -74,14 +77,14 @@ function fetchMovies(movies){
         <p>RUNTIME: ${movies.runtime}</p>
         <p>CAPACITY: ${movies.capacity}</p>
         <p>NUMBER OF TICKETS SOLD: ${movies.tickets_sold}</p>
-        <p id="availableTickets-${movies.id}">NUMBER OF AVAILABLE TICKETS: ${availableTickets}</p>
+        <p id="availableTickets ${movies.id}">NUMBER OF AVAILABLE TICKETS: ${availableTickets}</p>
         <button class="ticketButton btn btn-dark"> Buy Ticket</button>
       
    `
    listContainer.appendChild(listItems)
    //implement a button for Buying a ticket and adding an event listener
-   const buyTicketButton = listItems.querySelector(".ticketButton");
-   buyTicketButton.addEventListener("click", buyTicket);
+   const button = listItems.querySelector(".ticketButton");
+   button.addEventListener("click", buyTicket);
 }
 
 
