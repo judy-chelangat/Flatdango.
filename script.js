@@ -30,7 +30,7 @@ function movieDetails(){
         <p>RUNTIME:${movie.runtime}</p>
         <p>CAPACITY:${movie.capacity}</p>
         <p>NUMBER OF TICKETS SOLD:${movie.tickets_sold}</p>
-        <p>NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
+        <p id="availableTickets-${movie.id}">NUMBER OF AVAILABLE TICKETS:${availableTickets}</p>
         <button class="btn btn-dark"> Buy Ticket</button>
      
         `
@@ -74,11 +74,14 @@ function fetchMovies(movies){
         <p>RUNTIME: ${movies.runtime}</p>
         <p>CAPACITY: ${movies.capacity}</p>
         <p>NUMBER OF TICKETS SOLD: ${movies.tickets_sold}</p>
-        <p id="tickets">NUMBER OF AVAILABLE TICKETS: ${availableTickets}</p>
+        <p id="availableTickets-${movies.id}">NUMBER OF AVAILABLE TICKETS: ${availableTickets}</p>
         <button class="ticketButton btn btn-dark"> Buy Ticket</button>
       
    `
    listContainer.appendChild(listItems)
+   //implement a button for Buying a ticket and adding an event listener
+   const buyTicketButton = listItems.querySelector(".ticketButton");
+   buyTicketButton.addEventListener("click", buyTicket);
 }
 
 
@@ -88,18 +91,20 @@ listMovies() //calling the listmovies function
 //    see the number of available tickets decreasing on the frontend. I should not
 //    be able to buy a ticket if the showing is sold out (if there are 0 tickets
 //    available). **No persistence is ne  eded for this feature**.
-
-//implement a button for Buying a ticket and adding an event listener
-const buyTicketbuttons= document.querySelectorAll(".ticketButton")
-buyTicketbuttons.forEach(button =>{
-    button.addEventListener("click",buyTicket) // loop to get each button
-})
-function buyTicket(){ // function for decrementing number of tickets when a user buys a ticket
-   let leftTickets= availableTickets-=1
-   let remainder = document.getElementById("tickets")
-   remainder=leftTickets
+//function to decrement number of tickets 
+function buyTicket() {
+    const availableTicketsElement = this.parentNode.querySelector("p[id^='availableTickets']");
+    let leftTickets = parseInt(availableTicketsElement.textContent.split(": ")[1]);
+    if (leftTickets > 0) {
+      leftTickets -= 1;
+      availableTicketsElement.textContent = `NUMBER OF AVAILABLE TICKETS: ${leftTickets}`;
+      availableTickets = leftTickets; // Update the availableTickets variable
+    }
+    else if (availableTickets === 0) {
+           //this.disabled = true;
+           this.textContent = "Sold Out";
+          }
+  }
 }
-}
-
 
 document.addEventListener("DOMContentLoaded",initialize) //making sure the dom is fully parsed before starting the script.js
