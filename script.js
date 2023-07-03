@@ -96,15 +96,15 @@ listMovies() //calling the listmovies function
 //    available). **No persistence is ne  eded for this feature**.
 //function to decrement number of tickets 
 function buyTicket() {
-    const availableTicketsElement = this.parentNode.querySelector("p[id^='availableTickets']");
-    let leftTickets = parseInt(availableTicketsElement.textContent.split(": ")[1]);
+    const availableTicketsMain= this.parentNode.querySelector("p[id^='availableTickets']");// find the parent element of the element that has that id
+    let leftTickets = parseInt(availableTicketsMain.textContent.split(": ")[1]); //retrieves the text content of the availableTicketsElement and splits it by the colon and space ": ".
     if (leftTickets > 0) {
-      leftTickets -= 1;
-      availableTicketsElement.textContent = `NUMBER OF AVAILABLE TICKETS: ${leftTickets}`;
+      leftTickets --;
+      availableTicketsMain.textContent = `NUMBER OF AVAILABLE TICKETS: ${leftTickets}`;
       availableTickets = leftTickets; // Update the availableTickets variable
     }
     else if (availableTickets === 0) {
-           //this.disabled = true;
+
            this.textContent = "Sold Out";
           }
   }
